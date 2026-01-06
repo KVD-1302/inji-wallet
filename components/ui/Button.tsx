@@ -3,7 +3,12 @@ import {
   Button as RNEButton,
   ButtonProps as RNEButtonProps,
 } from 'react-native-elements';
-import {GestureResponderEvent, StyleProp, ViewStyle} from 'react-native';
+import {
+  GestureResponderEvent,
+  StyleProp,
+  TextStyle,
+  ViewStyle,
+} from 'react-native';
 import {Text} from './Text';
 import {Theme, Spacing} from './styleUtils';
 import testIDProps from '../../shared/commonUtil';
@@ -60,7 +65,7 @@ export const Button: React.FC<ButtonProps> = props => {
       raised={props.raised}
       title={
         <Text
-          style={{paddingTop: 3}}
+          style={[{paddingTop: 3}, props.titleStyle]}
           weight="semibold"
           align="center"
           color={
@@ -100,7 +105,10 @@ export const Button: React.FC<ButtonProps> = props => {
       raised={props.raised}
       title={
         <Text
-          style={props.icon ? {paddingLeft: 10} : {paddingLeft: 0}}
+          style={[
+            props.icon ? {paddingLeft: 10} : {paddingLeft: 0},
+            props.titleStyle,
+          ]}
           weight="bold"
           color={
             type === 'solid' || type === 'gradient' || type === 'radius'
@@ -134,4 +142,5 @@ interface ButtonProps {
   colors?: (string | number)[];
   width?: number;
   size?: string;
+  titleStyle?: StyleProp<TextStyle>;
 }
