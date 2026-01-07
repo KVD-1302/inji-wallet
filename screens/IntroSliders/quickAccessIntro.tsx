@@ -2,8 +2,7 @@ import React from 'react';
 import {Column, Text} from '../../components/ui';
 import {Theme} from '../../components/ui/styleUtils';
 import {useTranslation} from 'react-i18next';
-import {View, Image, Platform, ScrollView} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import {View, Image, ScrollView} from 'react-native';
 
 const QRScannerComponent: React.FC = () => (
   <Column crossAlign="center">
